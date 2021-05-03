@@ -7,6 +7,8 @@ const router = express.Router()
 
 router.post('/add',userController.addUser)
 
-router.post('/update',userController.updateUser)
+router.put('/update',userController.updateUser)
+
+router.get('/user',userController.getUser)
 
 module.exports = router

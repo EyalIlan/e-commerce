@@ -46,8 +46,23 @@ const updateUser = async (req,res) =>{
 }
 
 
+const getUser = async (req,res) =>{
+
+    const {email} = req.body
+
+    try{
+        const usr = await User.find({email:email})
+        
+        return res.json(usr)
+    }
+    catch(err){
+        console.log(err)
+    }
+}
+
 
 module.exports = {
     addUser,
-    updateUser
+    updateUser,
+    getUser
 }
