@@ -2,11 +2,16 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const path = require('path');
+const productRoute = require('./routes/product')
+
+
 app.use(cors());
-app.get('/api/getUser', (req,res)=>{
-    const user = 'Evgeni';
-    res.json(user);
-})
+app.use(productRoute)
+
+// app.get('/api/getUser', (req,res)=>{
+//     const user = 'Evgeni';
+//     res.json(user);
+// })
 
 const port = 8000;
 
@@ -20,6 +25,8 @@ if (process.env.NODE_ENV === 'production') {
       res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
     });
   }
+
+
 app.listen(process.env.PORT || port , () =>{
     console.log(`Server started on port ${port}`)
 });
