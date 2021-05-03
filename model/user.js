@@ -26,12 +26,19 @@ const userSchema = mongoose.Schema({
             }
         }
     },
+    type:{
+        type:Number,
+        enum:[0,1]
+    },
+
     password:{
         type:String,
         required:true,
         unique:true,
         validate(value){
-            Validator.isStrongPassword()
+            if(value.length <8){
+                throw new Error('password must be at least 8 chacrters long')
+            }
         }
     },
     details:{
@@ -51,8 +58,20 @@ const userSchema = mongoose.Schema({
                 }
             }
         }
+    },
+    isActive:{
+        type:Boolean,
+        required:false,
+        default:true
+    },
+
+    cart:{
+        type: [Schema.Types.ObjectId],
+        required:false,
+        default:[]
     }
-    
-    
 
 })
+
+const users  = mongoose.model('users',userSchema)
+module.exports= users; 
