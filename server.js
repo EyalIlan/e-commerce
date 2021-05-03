@@ -2,16 +2,28 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const path = require('path');
+const body = require('body-parser')
+
+const mongooseConnect = require('./db/database')
 const productRoute = require('./routes/product')
+const userRoute = require('./routes/user')
+
+app.use(body.urlencoded({extended:true}))
+app.use(body.json())
 
 
 app.use(cors());
-app.use(productRoute)
+app.use('/product',productRoute)
+app.use('/user',userRoute)
 
 // app.get('/api/getUser', (req,res)=>{
 //     const user = 'Evgeni';
 //     res.json(user);
 // })
+
+
+mongooseConnect.mongoConnect()
+
 
 const port = 8000;
 

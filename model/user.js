@@ -10,7 +10,7 @@ const userSchema = mongoose.Schema({
         unique:true,
         trim:true,
         validate(value){
-            if(value.length < 4){
+            if(value.length < 3){
                 throw new Error('User name to short')
             }
         }
@@ -27,14 +27,15 @@ const userSchema = mongoose.Schema({
         }
     },
     type:{
-        type:Number,
-        enum:[0,1]
+        type:String,
+        enum:['user','admin'],
+        default:'user'
     },
 
     password:{
         type:String,
         required:true,
-        unique:true,
+        unique:false,
         validate(value){
             if(value.length <8){
                 throw new Error('password must be at least 8 chacrters long')
@@ -45,10 +46,12 @@ const userSchema = mongoose.Schema({
         country:{
             type:String,
             required:false,
+            
         },
         Address:{
             type:String,
             required:false,
+
         },
         phone:{
             type:String,
@@ -66,7 +69,7 @@ const userSchema = mongoose.Schema({
     },
 
     cart:{
-        type: [Schema.Types.ObjectId],
+        type: [mongoose.Schema.Types.ObjectId],
         required:false,
         default:[]
     }
