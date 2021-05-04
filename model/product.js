@@ -4,6 +4,9 @@ const mongoose = require('mongoose')
 const proudctSchema = mongoose.Schema({
 
 
+
+    //review
+
     productName:{
         type:String,
         required:true,
@@ -24,6 +27,14 @@ const proudctSchema = mongoose.Schema({
                 throw new Error('price must be a positive')
             }
         }
+    },
+    category:{
+        type:String,
+        required:true
+    },
+    quentity:{
+        type:Number,
+        required:true
     },
 
     premium:{
