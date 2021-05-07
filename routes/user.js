@@ -22,12 +22,13 @@ const upload = multer({
 
 const router = express.Router()
 
+router.post('/add',userController.addUser)
 
 router.post('/avatar',Auth,upload.single('avatar'),userController.addAvatarPicture)
 
 router.delete('/avatar',Auth,userController.DeleteUserPicture)
 
-router.post('/add',userController.addUser)
+router.delete('/delete',Auth,userController.deleteUser)
 
 router.put('/update',Auth,userController.updateUser)
 
@@ -35,6 +36,6 @@ router.get('/user',Auth,userController.getUser)
 
 router.get('/users',Auth,userController.GetAllUsers)
 
-router.delete('/delete',Auth,userController.deleteUser)
+router.get('/avatar/:id',userController.GetUserImage)
 
 module.exports = router

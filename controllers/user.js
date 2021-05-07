@@ -17,16 +17,18 @@ const addUser = async (req, res) => {
 
 
 const addAvatarPicture = async (req,res) =>{
+    
+    console.log('hello');
     req.user.avatar = req.file.buffer
-
     await req.user.save()
-    res.send()
+    // res.send()
 
-    return res.status(201).send('picture added')
+    // return res.status(201).send('picture added')
 }
 
 const DeleteUserPicture = async (req,res) =>{
     
+
     try{
         req.user.avatar = undefined
         await req.user.save()
@@ -101,9 +103,27 @@ const deleteUser = async (req, res) => {
         return res.json('problem deleting the user')
     }
 
-
-
 }
+
+const GetUserImage = async (req,res) =>{
+
+    try{
+
+        const user = await User.findById(req.params.id)
+
+        if(!user || !user.avatar){
+            throw new Error()
+        }
+
+        res.set('Content-Type','image/jpg')
+        res.send(user.avatar)
+
+    }
+    catch(e){
+        res.status(404).send()
+    }
+}
+
 
 //Admin
 const GetAllUsers = async (req,res) =>{
@@ -128,5 +148,6 @@ module.exports = {
     deleteUser,
     GetAllUsers,
     addAvatarPicture,
-    DeleteUserPicture
+    DeleteUserPicture,
+    GetUserImage
 }
