@@ -1,43 +1,60 @@
 
 const  User = require('../model/user')
-const bcrypt = require('bcryptjs')
+
+const Login =  async (req,res) =>{
+
+    try{
+
+        const user = await User.findByCredentials(req.body.email,req.body.password)
+        const token = await user.generateAuthToken()
+
+        res.status(201).send({user,token})
+
+    }
+    catch(e){
+        console.log(e);
+        res.status(400).json(e)
+    }
+}
 
 
-const Login = async (req,res) =>{
 
-        const {email,password} = req.body
-        
-        try{
-            const user = await User.find({email:email})
-            if(user){
-                 const isMatch = await bcrypt.compare(user.password,password) 
-                 if(isMatch){
-
-                    
-
-                 }else{
-                    res.json('user name or password is incorrect')
-                 }
-            }else{
-                res.json('user name or password is incorrect')
-            }
-        }
-        catch(e){
-            res.json(e)
-        }
+const LogOut = async (req,res) =>{
     
+    try{
+
+        req.user.tokens = req.user.tokens.filter(token =>{
+            return token.token !== req.token
+        })
+          
+        await req.user.save()
+
+        res.send()
+    }
+    catch(e){
+        res.status(500).send()
+    }
 
 }
 
 
-const LogOut = (req,res) =>{
+const LogOutAll = async (req,res) =>{
 
+
+    try{
+        req.user.tokens = []
+        await req.user.save()
+        res.send('the user has logout')   
+
+    }
+    catch(e){
+        res.status(500).json(e)
+    }
 
 }
-
-
 
 module.exports = {
     Login,
-    LogOut
+    LogOut,
+    LogOutAll
 }

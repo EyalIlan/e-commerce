@@ -1,25 +1,28 @@
 
 const Product = require('../model/product')
 
-
+//need to do testing
 
 //Admin
 const CreateProduct = async (req,res) =>{
 
+    console.log(req.user);
 
-    const {productName,descirption,price} = req.body
-
-    const product = new Product({
-        productName,
-        descirption,
-        price
-    })
-    await product.save()
-    res.json('new product save Successfully')
-
+    try{
+        const product = new Product({
+            ...req.body,
+            owner:req.user._id
+        })
+        await product.save()
+        res.status(201).json(product)
+    }
+    catch(e){
+        console.log(e);
+        res.status(400).json('errorrrr')
+    }
 }
 
-//Admin
+//Admin need to change it like the user update
 const EditProduct = async (req,res) =>{
 
     const {productName,descirption,price,premium,Image,isActive,_Id} = req.body
@@ -100,10 +103,10 @@ const GetCategoryProdcuts = async (req,res) =>{
 //User ask how to get specific product by Id or name?
 const GetSpecificProduct = async (req,res) =>{
 
-    const {_Id}  = req.params
+    const {id}  = req.params
 
     try{
-        const product = await Product.findById(_Id)
+        const product = await Product.findById(id)
         res.json(product)
     }
     catch(e){

@@ -51,6 +51,11 @@ const proudctSchema = mongoose.Schema({
         type:Boolean,
         required:false,
         default:true
+    },
+    owner:{
+        type:mongoose.Schema.Types.ObjectId,
+        required:true,
+        ref:'User'
     }
 
 },{

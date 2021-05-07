@@ -1,22 +1,22 @@
 const express = require('express')
-
+const Auth = require('../middleware/auth')
 const productController = require('../controllers/products')
 
 
 const router = express.Router()
 
 
-router.get('/allproducts',productController.GetAllProducts)
+router.get('/allproducts',Auth,productController.GetAllProducts)
 
-router.get('/category',productController.GetCategoryProdcuts)
+router.get('/category',Auth,productController.GetCategoryProdcuts)
 
-router.get('/product/:id')
+router.get('/product/:id',Auth, productController.GetSpecificProduct)
 
-router.put('/edit',productController.EditProduct)
+router.put('/edit',Auth,productController.EditProduct)
 
-router.delete('/delete',productController.DeleteProduct)
+router.delete('/delete',Auth,productController.DeleteProduct)
 
-router.post('/create',productController.CreateProduct)
+router.post('/add',Auth,productController.CreateProduct)
 
 
 
