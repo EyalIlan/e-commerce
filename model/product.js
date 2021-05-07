@@ -42,9 +42,7 @@ const proudctSchema = mongoose.Schema({
         default:false
     },
     Image:{
-        type:String,
-        required:false,
-        unique:false,
+        type:Buffer
     },
 
     isActive:{

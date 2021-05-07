@@ -2,6 +2,16 @@ const express = require('express')
 const Auth = require('../middleware/auth')
 const productController = require('../controllers/products')
 
+//upload product pictures
+const multer = require('multer')
+
+const upload = multer({
+  dest:'avatars',
+  limits:{
+      fileSize:1000000
+  }
+})
+
 
 const router = express.Router()
 

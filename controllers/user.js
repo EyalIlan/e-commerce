@@ -1,7 +1,4 @@
 const User = require('../model/user')
-// const bcrypt = require('bcryptjs')
-
-
 
 //signup
 const addUser = async (req, res) => {
@@ -17,6 +14,30 @@ const addUser = async (req, res) => {
     }
 
 }
+
+
+const addAvatarPicture = async (req,res) =>{
+    req.user.avatar = req.file.buffer
+
+    await req.user.save()
+    res.send()
+
+    return res.status(201).send('picture added')
+}
+
+const DeleteUserPicture = async (req,res) =>{
+    
+    try{
+        req.user.avatar = undefined
+        await req.user.save()
+        res.json('seccuss')
+    }
+    catch(e){
+        req.json(e)
+    }
+
+}
+
 
 //user
 const updateUser = async (req, res) => {
@@ -105,5 +126,7 @@ module.exports = {
     updateUser,
     getUser,
     deleteUser,
-    GetAllUsers
+    GetAllUsers,
+    addAvatarPicture,
+    DeleteUserPicture
 }
