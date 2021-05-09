@@ -1,38 +1,61 @@
-.App {
-  text-align: center;
+
+
+
+.navbar-align{
+  justify-content: flex-end;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.homepage{
+  position: relative;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  z-index: 1;
 }
 
-.App-link {
-  color: #61dafb;
+.homepage::after{
+  content:'';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.9;
+  background-image: url('https://cdn.wallpapersafari.com/44/93/z9YJw7.jpg');
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: opacity 0.3s ease-in;
+  animation: 1s linear mymove;
+}
+
+@keyframes mymove{
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+
+.MainNavbar{
+  top: 0;
+  z-index: 3;
+  position: sticky;
+}
+
+.CardProduct{
+  transition: 0.2s transform ease-in;
+}
+
+
+.CardProduct:hover{
+  transform: translateY(-20px);
+  scale: (0.90);
 }
