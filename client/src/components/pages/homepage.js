@@ -21,8 +21,7 @@ function User() {
   return (
     <div>
         <div className="homepage">
-            
-            <div className ="main-title">
+          <div className ="main-title">
             <h1>
                 Welcome to Extreme Sport
             </h1>
@@ -30,19 +29,21 @@ function User() {
 
             </div>
         </div>
+
+        
         <Container>
         <h2>Popular Products</h2>
         <Row>
-            {products.map(product =>{
-              return <Col sm={12} md={6} lg={4} xl={3}>
+            {products.map((product,index) =>{
+              return <Col key={index} sm={12} md={6} lg={4} xl={3}>
                 <ProductCard  product = {product}></ProductCard>
               </Col>
             })}
         </Row>
-        <h2>Popular Products</h2>
+        <h2>Latest Products</h2>
             <Row>
-            {products.map(product =>{
-              return <Col sm={12} md={6} lg={4} xl={3}>
+            {products.map((product,index) =>{
+              return <Col key={index} sm={12} md={6} lg={4} xl={3}>
                 <ProductCard  product = {product}></ProductCard>
               </Col>
             })}
@@ -56,3 +57,8 @@ function User() {
 }
 
 export default User;
+
+
+// import { useHistory } from 'react-router-dom'
+// const history = useHistory();
+// history.push(`path to route`)
