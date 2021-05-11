@@ -1,6 +1,7 @@
 import React, { useState} from 'react'
 import Axios from 'axios'
 import {useHistory} from 'react-router-dom'
+import {Button} from 'react-bootstrap'
 import './Signup.css'
 
 export default function Signup() {
@@ -51,12 +52,14 @@ const SingUpHandler = async (e) =>{
 
 
 return (
-    <div>
+    <div className="flex">
+
       <div className="form">
         <div className="form-toggle"></div>
         <div className="form-panel one">
           <div className="form-header">
             <h1>Sign up</h1>
+            <Button className="bg-info" variant="dark" onClick={() =>{history.push('/')}}>Go Back</Button>
           </div>
           <div className="form-content">
             <form>
@@ -82,6 +85,9 @@ return (
             </form>
           </div>
         </div>
+      </div>
+      <div  className="side-picture">
+      
       </div>
     </div>
   )

@@ -5,6 +5,49 @@
   justify-content: flex-end;
 }
 
+
+
+.product-container{
+  display: flex;
+  height: 80vh;
+  /* background-color: brown; */
+  justify-content: center;
+  align-items: center;
+}
+
+.product-image-container{
+  height: 100%;
+  /* background-color: blue; */
+  display: flex;
+  align-items: center;
+}
+
+.product-details{
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* background-color: chartreuse; */
+  height: 80%;
+  width: 300px;
+  max-width: 400px;
+}
+
+.product-details-footer{
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-image-container img{
+  height: 80%;
+  border: 2px solid black;
+}
+
+.bold-text{
+  font-weight: bold;
+  color: blue;
+}
+
 .homepage{
   position: relative;
   height: 100vh;

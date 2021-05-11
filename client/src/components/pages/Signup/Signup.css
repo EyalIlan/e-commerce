@@ -1,10 +1,19 @@
-/* html {
+
+  
+  .flex{
+    display: flex;
+  }
+  
+  .side-picture{
+    background-image: url('https://wallpaperaccess.com/full/552032.jpg');
+    background-position: center;
+    background-size: cover;
+    object-fit: fill;
+    height: 90vh;
     width: 100%;
-    height: 100%;
-  } */
-  
-  
-  
+    
+  }
+
    .overlay, .form-panel.one:before {
     position: absolute;
     top: 0;
@@ -12,7 +21,7 @@
     display: none;
     background: rgba(0, 0, 0, 0.8);
     width: 100%;
-    height: 100%;
+    height: 100%
   }
   
   .form-margin-signup{
@@ -21,15 +30,15 @@
 
 
   .form {
-    z-index: 15;
+    z-index: 1;
     background: #FFFFFF;
     width: 800px;
+    /* height: 100%; */
     border-radius: 4px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
-    
     overflow: hidden;
-    z-index: -1;
+  
   }
    .form-toggle {
     z-index: 10;
@@ -207,6 +216,8 @@
     opacity: 0;
   } */
   .form-header {
+    display: flex;
+    justify-content: space-between;
     margin: 0 0 40px;
   }
   .form-header h1 {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Axios from 'axios'
 import classes from './login.css'
-import {useHistory} from 'react-router-dom'
+import {useHistory,Link} from 'react-router-dom'
 
 export default function Login() {
   
@@ -56,9 +56,12 @@ return (
                 <input id="password" type="password" value={password} name="password" onChange={LoginDataHandler} />
               </div>
               <div className="form-group">
-                <label className="form-remember">
+              <label className="form-remember">
                   <input type="checkbox" />Remember Me
-            </label><a className="form-recovery">Forgot Password?</a>
+              </label>
+              <Link className="form-recovery" to="#">Forgot Password?</Link>
+              <Link className="form-recovery" to="/signup">Signup</Link>
+              
               </div>
               <div className="form-group">
                 <button type="submit" onClick = {LoginAccess}>Log In</button>

@@ -23,7 +23,7 @@ export default function productCard({product}) {
           </Card.Text>
           <Card.Text as='h3'>${product.price}</Card.Text>
           <Link to = {`product/${product._id}`}>
-            <Button variant="danger">Show product</Button>
+            <Button variant="info">Show product</Button>
           </Link>
      
         </Card.Body>
