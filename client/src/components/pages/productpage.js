@@ -1,14 +1,31 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
-import {Link} from 'react-router-dom'
+import {Link,useHistory} from 'react-router-dom'
 import {Button} from 'react-bootstrap'
 import products from '../../products'
 
-export default function productpage(props) {
+export default function Productpage(props) {
     
+
+    const history = useHistory()
+
+    useEffect(() =>{
+      if(!props.user){
+
+         history.push('/')
+      }
+    })
+
+
     const product = products.find(p => p._id === props.match.params.id)
     // <Link  className="btn btn-warning my-3" to="/">Go Back</Link>
     
+    // useEffect(() =>{
+
+
+
+    // })
+
     return (
         <div className="product-container container">
             <div className ="product-image-container">

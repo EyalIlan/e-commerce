@@ -3,22 +3,25 @@ import axios from 'axios';
 import products from '../../products'
 import ProductCard from '../UI/productCard'
 import {Col, Container, Row} from 'react-bootstrap'
+import {useHistory} from 'react-router-dom'
+
+function HomePage({user}) {
+
+  const [userState,SetStateUser] = useState(user)
 
 
-function User() {
-  // const [user, setUser] = useState(null)
+  const history = useHistory()
 
-  // const getUser = async () => {
-  //   const data = await axios.get('api/getUser')
-  //   setUser(data.data)
-  // }
-
-  // useEffect(() => {
-  //   getUser()
-  // }, [])
+  useEffect(() =>{
+    if(!user){
+      
+      history.push('/')      
+    
+    }
+  })
 
 
-  return (
+return (
     <div>
         <div className="homepage">
           <div className ="main-title">
@@ -56,7 +59,7 @@ function User() {
   );
 }
 
-export default User;
+export default HomePage;
 
 
 // import { useHistory } from 'react-router-dom'

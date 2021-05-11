@@ -3,6 +3,12 @@ import ReactDOM from "react-dom";
 import './bootstrap.min.css'
 import "./index.css";
 import App from "./App";
+import Axios from 'axios'
+
+
+Axios.defaults.baseURL = ''
+Axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token')
+
 
 ReactDOM.render(<App />, document.getElementById("root"));
 

@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import Axios from 'axios'
-import classes from './login.css'
 import {useHistory,Link} from 'react-router-dom'
+import './login.css'
 
-export default function Login() {
-  
+
+// http://4.bp.blogspot.com/-AXsm1sFhq5o/TsSxgHcXzrI/AAAAAAAADn0/0Vmq9IvoiJg/s1600/sport-desktop-wallpapers-photo-images-31.jpg
+
+export default function Login({SaveUser}) {
   
   const [username,SetUserName] = useState('')
   const [password,SetPassword] = useState('')
@@ -24,21 +26,31 @@ export default function Login() {
 const LoginAccess = async (e) =>{
     e.preventDefault()
     
-    const request = await  Axios.post('login',{
-      email:username,
-      password:password
-    })
+    try{
+      const request = await  Axios.post('login',{
+        email:username,
+        password:password
+      })
+     
+      localStorage.setItem('token',request.data.token)
+      
+      SaveUser(request.data.user)
+      
+      history.push('/homepage')
+    }
+    catch(e){
+      console.log('Cant Send Request');
+    }
     
-    //need to check if the user exists or not
-    console.log(request);
-    history.push('/homepage')
 
-  
   }
 
 
 return (
-    <div>
+    <div className="flex">
+      <div className="side-picture login-picture" >
+        
+      </div>
       <div className="form form-margin-login">
         <div className="form-toggle"></div>
         <div className="form-panel one">

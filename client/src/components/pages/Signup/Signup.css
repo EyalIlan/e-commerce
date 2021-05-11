@@ -5,13 +5,16 @@
   }
   
   .side-picture{
-    background-image: url('https://wallpaperaccess.com/full/552032.jpg');
     background-position: center;
     background-size: cover;
     object-fit: fill;
     height: 90vh;
     width: 100%;
     
+  }
+
+  .signup-picture{
+    background-image: url('https://wallpaperaccess.com/full/552032.jpg');
   }
 
    .overlay, .form-panel.one:before {

@@ -86,7 +86,7 @@ return (
           </div>
         </div>
       </div>
-      <div  className="side-picture">
+      <div  className="side-picture signup-picture">
       
       </div>
     </div>

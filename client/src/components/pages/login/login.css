@@ -28,6 +28,12 @@
 }
 
 
+
+.login-picture{
+    background-color: blue;
+    background-image: url('http://4.bp.blogspot.com/-AXsm1sFhq5o/TsSxgHcXzrI/AAAAAAAADn0/0Vmq9IvoiJg/s1600/sport-desktop-wallpapers-photo-images-31.jpg');
+}
+
   .form {
     z-index: 15;
     /* position: relative; */

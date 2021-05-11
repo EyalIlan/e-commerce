@@ -5,19 +5,30 @@ import ProductPage from './components/pages/productpage'
 import LoginPage from './components/pages/login/login'
 import SignupPage from './components/pages/Signup/Signup'
 import Navbar from './components/UI/navbar'
+import React, { useState, useEffect } from 'react'
+
 
 function App() {
+    
+
+  const [user,SetUser] = useState(null)
+
+  const SaveAuthenicatedUser = (user) =>{
+
+      SetUser(user)
+
+  }
 
   return (
     <div>
       <BrowserRouter>
-        <Navbar></Navbar>
+        <Navbar user = {user}></Navbar>
         <Switch>
 
-          <Route path ='/' component={LoginPage} exact></Route>
-          <Route path ='/signup' component = {SignupPage} exact></Route>
-          <Route path='/homepage' component={HomePage}  exact/>
-          <Route path ='/product/:id' component={ProductPage} exact></Route>
+          <Route path ='/' render={() =><LoginPage  SaveUser ={SaveAuthenicatedUser}/>} exact></Route>
+          <Route path ='/signup' render = {() => <SignupPage ></SignupPage>} exact></Route>
+          <Route path='/homepage' render={() => <HomePage user={user}></HomePage>}  exact/>
+          <Route path ='/product/:id' render={() =><ProductPage user={user}></ProductPage>} exact></Route>
         </Switch>
       </BrowserRouter>
     </div>

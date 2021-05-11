@@ -2,7 +2,9 @@
 import  {Navbar,Nav,Container} from 'react-bootstrap'
 import  {LinkContainer} from 'react-router-bootstrap'
 
-export default function navbar() {
+export default function navbar({user}) {
+
+    console.log(user)
 
     return (
         <div className="MainNavbar">
