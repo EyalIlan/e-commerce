@@ -1,9 +1,9 @@
 import './App.css';
-import { Route } from 'react-router';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter,Route,Switch } from 'react-router-dom';
 import HomePage from './components/pages/homepage';
 import ProductPage from './components/pages/productpage'
 import LoginPage from './components/pages/login/login'
+import SignupPage from './components/pages/Signup/Signup'
 import Navbar from './components/UI/navbar'
 
 function App() {
@@ -12,9 +12,13 @@ function App() {
     <div>
       <BrowserRouter>
         <Navbar></Navbar>
-        <Route exact path='/' component={HomePage}  exact/>
-        <Route path ='/product/:id' component={ProductPage} exact></Route>
-        <Route path ='/login' component={LoginPage} exact></Route>
+        <Switch>
+
+          <Route path ='/' component={LoginPage} exact></Route>
+          <Route path ='/signup' component = {SignupPage} exact></Route>
+          <Route path='/homepage' component={HomePage}  exact/>
+          <Route path ='/product/:id' component={ProductPage} exact></Route>
+        </Switch>
       </BrowserRouter>
     </div>
   );

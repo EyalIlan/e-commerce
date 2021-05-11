@@ -6,16 +6,16 @@ import {Col, Container, Row} from 'react-bootstrap'
 
 
 function User() {
-  const [user, setUser] = useState(null)
+  // const [user, setUser] = useState(null)
 
-  const getUser = async () => {
-    const data = await axios.get('api/getUser')
-    setUser(data.data)
-  }
+  // const getUser = async () => {
+  //   const data = await axios.get('api/getUser')
+  //   setUser(data.data)
+  // }
 
-  useEffect(() => {
-    getUser()
-  }, [])
+  // useEffect(() => {
+  //   getUser()
+  // }, [])
 
 
   return (
