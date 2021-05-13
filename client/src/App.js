@@ -18,14 +18,17 @@ function App() {
       SetUser(user)
 
   }
+  const LogOutUSer = () =>{
+      SetUser(null)
+  }
 
   return (
     <div>
       <BrowserRouter>
-        <Navbar user = {user}></Navbar>
+        <Navbar user = {user} Logout = {LogOutUSer}></Navbar>
         <Switch>
 
-          <Route path ='/' render={() =><LoginPage  SaveUser ={SaveAuthenicatedUser}/>} exact></Route>
+          <Route path ='/' render={() =><LoginPage  SaveUser ={SaveAuthenicatedUser} />} exact></Route>
           <Route path ='/signup' render = {() => <SignupPage ></SignupPage>} exact></Route>
           <Route path='/homepage' render={() => <HomePage user={user}></HomePage>}  exact/>
           <Route path ='/product/:id' render={() =><ProductPage user={user}></ProductPage>} exact></Route>

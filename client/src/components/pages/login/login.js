@@ -31,9 +31,12 @@ const LoginAccess = async (e) =>{
         email:username,
         password:password
       })
-     
-      localStorage.setItem('token',request.data.token)
+
+      console.log(request.data.token);
       
+      Axios.defaults.headers.common['Authorization'] = 'Bearer ' + request.data.token
+      // localStorage.setItem('token',request.data.token)
+      // console.log(localStorage.getItem('token'));
       SaveUser(request.data.user)
       
       history.push('/homepage')

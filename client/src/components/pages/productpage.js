@@ -11,7 +11,7 @@ export default function Productpage(props) {
 
     useEffect(() =>{
       if(!props.user){
-
+          
          history.push('/')
       }
     })

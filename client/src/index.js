@@ -6,8 +6,12 @@ import App from "./App";
 import Axios from 'axios'
 
 
-Axios.defaults.baseURL = ''
+
+console.log(localStorage.getItem('token'));
+
 Axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token')
+
+console.log(localStorage.getItem('token'))
 
 
 ReactDOM.render(<App />, document.getElementById("root"));
