@@ -33,7 +33,7 @@ export default function NAvbar({user,Logout}) {
 
     let Admin = '';
     let signup = <LinkContainer to ='/'>
-                 <Nav.Link ><img src="https://img.icons8.com/dusk/30/000000/change-user-male.png"/>  Sign up</Nav.Link>
+                 <Nav.Link ><img src="https://img.icons8.com/dusk/30/000000/change-user-male.png" alt="Signup"/>  Sign up</Nav.Link>
                 </LinkContainer>
 
 
@@ -41,13 +41,13 @@ export default function NAvbar({user,Logout}) {
     if(user){
 
         signup = (<LinkContainer to ='/' onClick={logoutHandler}>
-                     <Nav.Link ><img src="https://img.icons8.com/color/30/000000/logout-rounded--v1.png"/> Logout</Nav.Link>
+                     <Nav.Link ><img src="https://img.icons8.com/color/30/000000/logout-rounded--v1.png"alt="Logout"/> Logout</Nav.Link>
                     </LinkContainer>
                 )
 
         if(user.type === 'admin'){
             Admin = (  <LinkContainer to ='/admin'>
-                    <Nav.Link ><img src="https://img.icons8.com/color/35/000000/administrator-male-skin-type-7.png"/> Admin</Nav.Link>
+                    <Nav.Link ><img src="https://img.icons8.com/color/35/000000/administrator-male-skin-type-7.png"alt="Admin"/> Admin</Nav.Link>
                  </LinkContainer>)
         }
     }
@@ -66,13 +66,13 @@ export default function NAvbar({user,Logout}) {
         <Nav className="ml-auto">
             
             <LinkContainer to ='/cart'>
-            <Nav.Link ><img src="https://img.icons8.com/plasticine/35/000000/favorite-cart.png"/> Cart</Nav.Link>
+            <Nav.Link ><img src="https://img.icons8.com/plasticine/35/000000/favorite-cart.png" alt="Cart"/> Cart</Nav.Link>
             </LinkContainer>
 
            {signup}
             
             <LinkContainer to ='/account'>
-                <Nav.Link ><img src="https://img.icons8.com/plasticine/35/000000/test-account.png"/> Account</Nav.Link>
+                <Nav.Link ><img src="https://img.icons8.com/plasticine/35/000000/test-account.png" alt="Account"/> Account</Nav.Link>
             </LinkContainer>
                  {Admin}
         </Nav>

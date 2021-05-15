@@ -32,7 +32,6 @@ const LoginAccess = async (e) =>{
         password:password
       })
 
-      console.log(request.data.token);
       
       Axios.defaults.headers.common['Authorization'] = 'Bearer ' + request.data.token
       // localStorage.setItem('token',request.data.token)
