@@ -1,42 +1,47 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import ProductCard from '../../UI/productCard'
-import {Col, Container, Row} from 'react-bootstrap'
-import Axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
+import { Col, Container, Row } from 'react-bootstrap'
+import Spinner from '../../UI/Spinner/spinner'
+import { listProducts } from '../../../actions/productAction'
+import Message from '../../UI/Message/Message'
 
+export default function Products() {
 
-export default function Products({match}) {
-    
-    
-    const [products,SetProducts] = useState([])
-    
-    useEffect(() =>{
+    const dispatch = useDispatch()
 
-        const GetData = async () =>{
-            const {data} = await Axios.get('/product/allproducts') 
-            SetProducts(data)
-            console.log(data);
-        }
+    const productList = useSelector(state => state.productList)
+    const { loading, error, products } = productList
+    useEffect(() => {
 
-        GetData()
-    },[match])
+        dispatch(listProducts())
+
+    }, [dispatch])
 
 
     return (
         <div>
             <Container>
-        <h2>Popular Products</h2>
-        <Row>
-            {products.map((product,index) =>{
-              return <Col key={index} sm={12} md={6} lg={4} xl={3}>
-                <ProductCard  product = {product}></ProductCard>
-              </Col>
-            })}
-        </Row>
-        <h2>Latest Products</h2>
-        
+                <h1>Popular Products</h1>
+                {
+                loading ? (<Spinner></Spinner>) 
+                : error ? (<Message variant="danger">{error}</Message>) 
+                : (
+                    <Row>
+                        {products.map((product, index) => {
+                            return <Col key={index} sm={12} md={6} lg={4} xl={3}>
+                                <ProductCard product={product}></ProductCard>
+                            </Col>
+                        })}
+                    </Row>
+                )}
 
 
-        </Container> 
+                {/* <h2>Latest Products</h2> */}
+
+
+
+            </Container>
         </div>
     )
 }

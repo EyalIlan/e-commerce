@@ -1,39 +1,40 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
+import Spinner from '../../UI/Spinner/spinner'
+import Message from '../../UI/Message/Message'
+import {ProductDetails} from '../../../actions/productAction'
 import {useParams} from 'react-router-dom'
-import Axios from 'axios'
+import {useSelector,useDispatch} from 'react-redux'
+import {Link} from 'react-router-dom'
 import './product.css'
-// import products from '../../../products'
 
 
 
 export default function Productpage({match}) {
     
-    const [product,SetProduct] = useState({})
+    const dispatch = useDispatch()
+    const productDetail =  useSelector(state => state.productDetails)
+    const {loading,error,product} = productDetail
+
     const {id} = useParams()
-    
+
     useEffect(() =>{
     
-        const getData = async () =>{
-            const {data} = await Axios.get(`/product/product/${id}`)
-            SetProduct(data)
-        }
-        getData()
-    },[id])
-    
+            dispatch(ProductDetails(id))
 
-    // const history = useHistory()
-    // useEffect(() =>{
-    //   if(!props.user){
-          
-    //      history.push('/')
-    //   }
-    // })
+    },[dispatch])
+    
     
     return (
-        <div className="products">
+        <div>
+            {
+            loading ? <Spinner></Spinner>
+            :error?<Message variant="danger">{error}</Message>
+            :(
+                <div className="products">
             <div className="container">
-                <h1 className="lg-title">{product.productName}</h1>
-                <p className="text-lighter">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, quasi corporis vel velit ad cum a deserunt quod laudantium, optio quis dolorum consectetur officiis temporibus soluta quae nemo. Ad, sequi.</p>
+            <Link className="btn btn-info" to="/products">Go Back</Link>
+                <h1 className="lg-title">{product.name}</h1>
+                <p className="text-lighter">{product.descirption}</p>
             
                 <div className = "product-items">
                     <div className="product">
@@ -61,6 +62,9 @@ export default function Productpage({match}) {
                     </div>
                 </div>
             </div>
+        </div>)}
+
         </div>
+       
     )
 }

@@ -15,9 +15,9 @@ export default function productCard({product}) {
     return  (
         <div className="CardProduct">
         <Card className='text-center'>
-        <Card.Img variant="top" src="/images/pic.png" />
+        <Card.Img variant="top" src={product.image} />
         <Card.Body>
-          <Card.Title as='div'><strong>{product.productName}</strong></Card.Title>
+          <Card.Title as='div'><strong>{product.name}</strong></Card.Title>
           <Card.Text>
                 {product.descirption}
           </Card.Text>
