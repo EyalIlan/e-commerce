@@ -7,7 +7,7 @@ import LoginPage from './components/pages/login/login'
 import SignupPage from './components/pages/Signup/Signup'
 import Navbar from './components/UI/navbar'
 import React, { useState } from 'react'
-
+import ErrorPage from './components/pages/Error/404Page/Page404'
 
 function App() {
     
@@ -33,6 +33,7 @@ function App() {
           <Route path='/homepage' render={() => <HomePage user={user}></HomePage>}  exact/>
           <Route path ='/product/:id' render={() =><ProductPage user={user}></ProductPage>} exact></Route>
           <Route path ='/products' render={() =><ProductsPage></ProductsPage>} exact></Route>
+          <Route path ='/' render={() =><ErrorPage></ErrorPage>}></Route>
         </Switch>
       </BrowserRouter>
     </div>
