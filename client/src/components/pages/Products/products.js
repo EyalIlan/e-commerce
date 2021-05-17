@@ -6,6 +6,8 @@ import Spinner from '../../UI/Spinner/spinner'
 import { listProducts } from '../../../actions/productAction'
 import Message from '../../UI/Message/Message'
 
+import './products.css'
+
 export default function Products() {
 
     const dispatch = useDispatch()
@@ -20,13 +22,15 @@ export default function Products() {
 
 
     return (
-        <div>
+        <div className="products-container">
             <Container>
                 <h1>Popular Products</h1>
                 {
                 loading ? (<Spinner></Spinner>) 
                 : error ? (<Message variant="danger">{error}</Message>) 
                 : (
+                    <div>
+
                     <Row>
                         {products.map((product, index) => {
                             return <Col key={index} sm={12} md={6} lg={4} xl={3}>
@@ -34,6 +38,9 @@ export default function Products() {
                             </Col>
                         })}
                     </Row>
+                  
+                   
+                        </div>
                 )}
 
 

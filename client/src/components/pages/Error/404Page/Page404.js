@@ -8,7 +8,7 @@ export default function Page404() {
 
 
     const backToHomePage = () =>{
-        history.push('/')
+        history.push('/products')
     }
 
     return (
@@ -18,7 +18,7 @@ export default function Page404() {
                 <div className="shine-4"></div>
             </h1>
             <h1 style={{left:"71.2%"}} contenteditable>4 <h1/>
-  <div className="shine-3"></div>
+            <div className="shine-3"></div>
                 <div className="shine-4"></div>
             </h1>
             <div className="stars-container">
