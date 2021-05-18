@@ -5,9 +5,11 @@ import ProductsPage from './components/pages/Products/products'
 import ProductPage from './components/pages/product/productpage'
 import LoginPage from './components/pages/login/login'
 import SignupPage from './components/pages/Signup/Signup'
+import ErrorPage from './components/pages/Error/404Page/Page404'
+import CartPage from './components/pages/Cart/Cart'
 import Navbar from './components/UI/navbar'
 import React, { useState } from 'react'
-import ErrorPage from './components/pages/Error/404Page/Page404'
+
 
 function App() {
     
@@ -33,6 +35,7 @@ function App() {
           <Route path='/homepage' render={() => <HomePage user={user}></HomePage>}  exact/>
           <Route path ='/product/:id' render={() =><ProductPage user={user}></ProductPage>} exact></Route>
           <Route path ='/products' render={() =><ProductsPage></ProductsPage>} exact></Route>
+          <Route path ='/cart/:id?' render={() =><CartPage></CartPage>} exact></Route>
           <Route path ='/' render={() =><ErrorPage></ErrorPage>}></Route>
         </Switch>
       </BrowserRouter>

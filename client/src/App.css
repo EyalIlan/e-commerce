@@ -85,3 +85,7 @@
 .CardProduct img{
   height: 30vh;
 }
+
+.backRound-Container{
+  background-image:linear-gradient(#0575E6,#021B79);
+}

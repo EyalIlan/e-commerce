@@ -1,0 +1,45 @@
+.backround-Container{
+    min-width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    color: white;
+    background-image:linear-gradient(#0575E6,#021B79);
+  }
+
+.backround-Container a{
+    color: white;
+    text-decoration: none;
+}
+
+.flex-cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-cart img{
+    width: 100%;
+}
+
+.garbage-button{
+    margin: auto;
+    background: transparent;
+}
+
+.garbage-button img{
+    width: 40px;
+}
+
+.block-side-cart{
+    border: 2px solid white;
+}
+
+.flex{
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#checkout-button{
+    width: 100%;
+}

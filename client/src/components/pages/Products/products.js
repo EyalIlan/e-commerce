@@ -22,7 +22,7 @@ export default function Products() {
 
 
     return (
-        <div className="products-container">
+        <div className="products-container backRound-Container">
             <Container>
                 <h1>Popular Products</h1>
                 {

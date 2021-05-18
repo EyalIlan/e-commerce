@@ -18,7 +18,7 @@ export default function Productpage() {
 
     const [qty, SetQty] = useState(0)
     const [totalPrice,SetTotalPrice] = useState(0)
-    const [totalStock,SetTotalStock] = useState(0)
+    // const [totalStock,SetTotalStock] = useState(0)
     
 
 
@@ -28,12 +28,12 @@ export default function Productpage() {
 
     useEffect(() => {
         const Request = async () =>{
-            await dispatch(ProductDetails(id))
-            SetTotalStock(product.quentity)
+             dispatch(ProductDetails(id))
+            // SetTotalStock(product.quentity)
         } 
         Request()
 
-    }, [dispatch,product])
+    }, [dispatch])
     
     
     const AddToCart = () =>{
@@ -43,7 +43,7 @@ export default function Productpage() {
     }
 
   const addProductHandler = () =>{
-        if(qty+1 <= totalStock){
+        if(qty+1 <= product.quentity){
             SetQty(qty + 1)
             SetTotalPrice(product.price * (qty+1))
         }
@@ -60,7 +60,7 @@ export default function Productpage() {
 
 
 return (
-    <div>
+    <div className="backRound-Container">
         {
         loading ? <Spinner></Spinner>
             : error ? <Message variant="danger">{error}</Message>
@@ -78,13 +78,13 @@ return (
                 <div className="product-left-side">
                 <h2 className="product-scale"> <span id="price-tag">Price: {product.price}$ </span></h2>
 
-                    {product.quentity > 0 ? <h2 className="product-scale">number in Stock:  {totalStock}</h2>:<h2 className="product-scale">'Out of Stock'</h2>}
+                    {product.quentity > 0 ? <h2 className="product-scale">number in Stock:  {product.quentity}</h2>:<h2 className="product-scale">'Out of Stock'</h2>}
 
                        
                         <h2 className="product-scale">Rating:{product.rating}</h2>
                         <div className="product-stock">
-                            <button className="btn btn" onClick={addProductHandler} disabled={product.quentity === 0}>  <img src="/images/add.png" alt="" /></button>
-                            <button className="btn btn" onClick={removeProductHandler} disabled={product.quentity === 0}>  <img src="/images/minus.png" alt="" /></button>
+                            <button className="btn" onClick={addProductHandler} disabled={product.quentity === 0}>  <img src="/images/add.png" alt="" /></button>
+                            <button className="btn" onClick={removeProductHandler} disabled={product.quentity === 0}>  <img src="/images/minus.png" alt="" /></button>
                             <h4>TotalPrice: {totalPrice}$</h4>
                             <h4>Stock: {qty}</h4>
                         </div>
