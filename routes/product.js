@@ -16,7 +16,7 @@ const upload = multer({
 const router = express.Router()
 
 
-router.get('/allproducts',Auth,productController.GetAllProducts)
+router.get('/',Auth,productController.GetAllProducts)
 
 router.get('/category',Auth,productController.GetCategoryProdcuts)
 

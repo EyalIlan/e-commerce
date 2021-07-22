@@ -70,15 +70,16 @@ return (
                 <input id="password" type="password" value={password} name="password" onChange={LoginDataHandler} />
               </div>
               <div className="form-group">
-              <label className="form-remember">
+              {/* <label className="form-remember">
                   <input type="checkbox" />Remember Me
-              </label>
-              <Link className="form-recovery" to="#">Forgot Password?</Link>
-              <Link className="form-recovery" to="/signup">Signup</Link>
-              
+              </label> */}
+              {/* <Link className="form-recovery" to="#">Forgot Password?</Link> */} 
               </div>
               <div className="form-group">
                 <button type="submit" onClick = {LoginAccess}>Log In</button>
+              </div>
+              <div className ="form-group">
+                  <Link  to="/signup">Signup</Link>
               </div>
             </form>
           </div>

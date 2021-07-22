@@ -60,7 +60,4 @@ app.listen(process.env.PORT || port , () =>{
 
 
 
-// app.get('/api/getUser', (req,res)=>{
-//     const user = 'Evgeni';
-//     res.json(user);
-// })
+

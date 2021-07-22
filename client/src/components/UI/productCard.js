@@ -6,9 +6,6 @@ import {Link} from 'react-router-dom'
 export default function productCard({product}) {
 
 
-    // <FaApple size={30} style={{"color":"#ccc"}}} 
-    //                 onMouseOut={({target})=>target.style.color='#ccc'}/>
-
 
 
 

@@ -44,8 +44,6 @@ export default function Products() {
                 )}
 
 
-                {/* <h2>Latest Products</h2> */}
-
 
 
             </Container>

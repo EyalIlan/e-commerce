@@ -127,7 +127,7 @@
   .two .form-group input:focus {
     color: #FFFFFF;
   }
-  .form-group button {
+  .form-group button,.form-group a{
     outline: none;
     background: #4285F4;
     width: 100%;
@@ -141,6 +141,8 @@
     line-height: inherit;
     text-transform: uppercase;
     cursor: pointer;
+    text-decoration: none;
+    text-align: center;
   }
   .two .form-group button {
     background: #FFFFFF;
@@ -158,9 +160,9 @@
     margin: 0 10px 0 0;
   }
   .form-group .form-recovery {
-    color: #4285F4;
-    font-size: 12px;
-    text-decoration: none;
+    color: white;
+    /* font-size: 12px; */
+    /* text-decoration: none; */
   }
   .form-panel {
     padding: 60px calc(5% + 60px) 60px 60px;
